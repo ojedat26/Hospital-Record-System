@@ -11,7 +11,7 @@ package hospitalsystem;
 import java.util.ArrayList;
 public class HospitalSystemPatientView extends javax.swing.JFrame {
     static HospitalSystemController c = new HospitalSystemController(new HospitalSystemModel(),new HospitalSystemLogInView(),new HospitalSystemPatientView());
-    
+    ArrayList<Patient> PatientList = c.getPatients();
     /**
      * Creates new form HospitalSystemPatientView
      */
