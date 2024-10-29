@@ -8,7 +8,7 @@ package hospitalsystem;
  *
  * @author edowa
  */
-
+import java.util.ArrayList;
 public class HospitalSystemController {
     private HospitalSystemModel m;
     private HospitalSystemPatientView pv; //This class will be for our Patient Window Display
@@ -28,6 +28,12 @@ public class HospitalSystemController {
             pv.patientDisplay(); //This function should display our patient display window
             v.closeup();
         }
+    }
+    public Patient getPatient(String name){
+        return m.findPatient(name);
+    }
+    public ArrayList<Patient> getPatients(){
+        return m.get_PatientList();
     }
 }
 

@@ -23,10 +23,16 @@ public class HospitalSystemModel {
         StaffList.add(new Staff(6120,"helloWorld"));
         StaffList.add(new Staff(7630,"passWrd"));
     }
-        
+        public ArrayList<Patient> get_PatientList(){
+            return PatientList;
+        }
         public void addPatient(String name, String phoneNumber, String address, String Health){
-            this.PatientList.add(new Patient(name, phoneNumber, address, Health));
+            PatientList.add(new Patient(name, phoneNumber, address, Health));
             
+        }
+        public void removePatient(String name){
+            PatientList.remove(findPatient(name));
+           
         }
         public boolean checkStaff(int staffId, String password){
             for(Staff s:StaffList){
@@ -39,12 +45,21 @@ public class HospitalSystemModel {
                     }
                         
                 }
-               
-   
-        
-    }
+            }
             return false;
         }
+
+        
+        public Patient findPatient(String name){
+            for(Patient p:PatientList){
+                if (p.getName().equals(name)){
+                    return p;
+                }
+            }
+            return null;
+        
+        }
+        
         
            
 }
