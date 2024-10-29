@@ -34,6 +34,8 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +72,12 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jLabel1.setBounds(30, 60, 50, 16);
         jPanel2.add(jTextField1);
         jTextField1.setBounds(70, 60, 64, 22);
+        jPanel2.add(jTextField2);
+        jTextField2.setBounds(200, 60, 64, 22);
+
+        jLabel2.setText("Phone Number");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(160, 60, 50, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,8 +144,10 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
