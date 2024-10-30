@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class HospitalSystemPatientView extends javax.swing.JFrame {
     static HospitalSystemController c = new HospitalSystemController(new HospitalSystemModel(),new HospitalSystemLogInView(),new HospitalSystemPatientView());
     private ArrayList<String> Patients;
-    javax.swing.DefaultComboBoxModel model = new javax.swing.DefaultComboBoxModel();
     public HospitalSystemPatientView(ArrayList<String> Patients) {
         initComponents();
         this.Patients = Patients;
@@ -62,19 +61,6 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
 
         PatientOptions.setBackground(new java.awt.Color(239, 220, 249));
         PatientOptions.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        PatientOptions.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                PatientOptionsItemStateChanged(evt);
-            }
-        });
-        PatientOptions.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PatientOptionsMouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                PatientOptionsMouseReleased(evt);
-            }
-        });
         PatientOptions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PatientOptionsActionPerformed(evt);
@@ -297,12 +283,6 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PatientOptionsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_PatientOptionsItemStateChanged
-        // TODO add your handling code here:
-        
-        //Patient patient = c.getPatient(evt.getItem().toString());
-    }//GEN-LAST:event_PatientOptionsItemStateChanged
-
     private void PatientOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientOptionsActionPerformed
         // TODO add your handling code here:
         Patient patient = c.getPatient(PatientOptions.getSelectedItem().toString());
@@ -310,24 +290,10 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.PatientNumber.setText(patient.getPhoneNumber());
         this.PatientAddress.setText(patient.getAddress());
         this.PatientCondition.setText(patient.getCondition());
-       
-        
-        
     }//GEN-LAST:event_PatientOptionsActionPerformed
 
-    private void PatientOptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PatientOptionsMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_PatientOptionsMouseClicked
-
-    private void PatientOptionsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PatientOptionsMouseReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_PatientOptionsMouseReleased
-
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
-        
+
         c.addNewPatient(this.PatientName.getText(), this.PatientNumber.getText(), this.PatientAddress.getText(), this.PatientCondition.getText());
         this.addToDropDown(this.PatientName.getText());
         this.PatientOptions.setSelectedItem(this.PatientName.getText());
@@ -341,7 +307,6 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.PatientNumber.setText("");
         this.PatientAddress.setText("");
         this.PatientCondition.setText("");
-        
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
@@ -355,17 +320,12 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.PatientNumber.setText("");
         this.PatientAddress.setText("");
         this.PatientCondition.setText("");
-        
-        
-       
-                
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // TODO add your handling code here:
         c.deletePatient(this.PatientOptions.getSelectedItem().toString());
         this.PatientOptions.removeItemAt(this.PatientOptions.getSelectedIndex());
-        
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
@@ -414,16 +374,12 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
     private void addToDropDown(String name){
         PatientOptions.addItem(name);
         PatientOptions.setSelectedItem(name);
- 
     }
     public void updateDropDown(ArrayList<String> Patients){
         
         for(String p:Patients){
-           
         PatientOptions.addItem(p);
-        
         }
-        
         this.PatientOptions.setSelectedIndex(1);
     }
     

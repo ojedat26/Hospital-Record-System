@@ -73,11 +73,6 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
         staffId.setBackground(new java.awt.Color(239, 220, 249));
         staffId.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
         staffId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        staffId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                staffIdActionPerformed(evt);
-            }
-        });
         jPanel3.add(staffId);
         staffId.setBounds(90, 10, 178, 30);
 
@@ -142,11 +137,6 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void staffIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffIdActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_staffIdActionPerformed
 
     private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
         // TODO add your handling code here:
