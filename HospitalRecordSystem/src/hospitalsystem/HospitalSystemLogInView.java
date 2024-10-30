@@ -18,7 +18,7 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
     public HospitalSystemLogInView() {
         initComponents();
         
-        System.out.println("At LogInView");
+        
     }
 
     /**
@@ -67,7 +67,7 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Staff ID:");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(0, 0, 80, 50);
+        jLabel4.setBounds(0, 0, 90, 50);
 
         staffId.setBackground(new java.awt.Color(239, 220, 249));
         staffId.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N

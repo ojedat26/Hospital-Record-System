@@ -17,12 +17,12 @@ public class HospitalSystemController {
         this.m = m;
         this.v = v;
         this.pv = pv;
-        System.out.println("In Controller");
+       
         
     }
     public void start(){
         v.startup();
-        System.out.println("yurr");
+       
         
     }
     public void validateStaff(int staffId, String password){
@@ -38,7 +38,7 @@ public class HospitalSystemController {
         return m.findPatient(name);
     }
     public ArrayList<String> getPatients(){
-        System.out.println("here");
+        
         return m.getPatientList();
     }
     
