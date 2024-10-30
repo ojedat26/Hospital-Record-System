@@ -57,9 +57,11 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 153));
+        jPanel1.setBackground(new java.awt.Color(105, 94, 147));
         jPanel1.setLayout(null);
 
+        PatientOptions.setBackground(new java.awt.Color(239, 220, 249));
+        PatientOptions.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
         PatientOptions.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 PatientOptionsItemStateChanged(evt);
@@ -79,7 +81,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
             }
         });
         jPanel1.add(PatientOptions);
-        PatientOptions.setBounds(90, 30, 220, 22);
+        PatientOptions.setBounds(90, 30, 220, 30);
         PatientOptions.getAccessibleContext().setAccessibleName("");
 
         jLabel5.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
@@ -88,45 +90,58 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(90, 6, 220, 20);
 
-        jPanel2.setBackground(new java.awt.Color(204, 0, 204));
+        jPanel2.setBackground(new java.awt.Color(190, 175, 194));
         jPanel2.setLayout(null);
 
+        addButton.setBackground(new java.awt.Color(105, 94, 147));
+        addButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         addButton.setText("Add");
+        addButton.setBorder(null);
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
             }
         });
         jPanel2.add(addButton);
-        addButton.setBounds(292, 20, 100, 23);
+        addButton.setBounds(290, 20, 100, 40);
 
+        removeButton.setBackground(new java.awt.Color(105, 94, 147));
+        removeButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         removeButton.setText("Remove");
+        removeButton.setBorder(null);
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeButtonActionPerformed(evt);
             }
         });
         jPanel2.add(removeButton);
-        removeButton.setBounds(290, 60, 100, 23);
+        removeButton.setBounds(290, 70, 100, 40);
 
+        editButton.setBackground(new java.awt.Color(105, 94, 147));
+        editButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         editButton.setText("Edit");
+        editButton.setBorder(null);
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
             }
         });
         jPanel2.add(editButton);
-        editButton.setBounds(290, 100, 100, 23);
+        editButton.setBounds(290, 120, 100, 40);
 
+        updateButton.setBackground(new java.awt.Color(105, 94, 147));
+        updateButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         updateButton.setText("Update");
+        updateButton.setBorder(null);
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
             }
         });
         jPanel2.add(updateButton);
-        updateButton.setBounds(290, 140, 100, 23);
+        updateButton.setBounds(290, 170, 100, 40);
 
+        jPanel4.setBackground(new java.awt.Color(239, 220, 249));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
@@ -134,6 +149,8 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jLabel1.setText("Name:");
 
         PatientName.setEditable(false);
+        PatientName.setBackground(new java.awt.Color(239, 220, 249));
+        PatientName.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         PatientName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -143,17 +160,22 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                .addComponent(PatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PatientName, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(60, 20, 220, 30);
+        jPanel4.setBounds(50, 20, 230, 40);
 
+        jPanel5.setBackground(new java.awt.Color(239, 220, 249));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
@@ -161,7 +183,8 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jLabel2.setText("Phone Number:");
 
         PatientNumber.setEditable(false);
-        PatientNumber.setBackground(new java.awt.Color(255, 255, 255));
+        PatientNumber.setBackground(new java.awt.Color(239, 220, 249));
+        PatientNumber.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         PatientNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -169,21 +192,26 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PatientNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PatientNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PatientNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PatientNumber)
+                .addContainerGap())
         );
 
         jPanel2.add(jPanel5);
-        jPanel5.setBounds(60, 60, 220, 30);
+        jPanel5.setBounds(50, 70, 230, 40);
 
+        jPanel6.setBackground(new java.awt.Color(239, 220, 249));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel3.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
@@ -191,6 +219,8 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jLabel3.setText("Address:");
 
         PatientAddress.setEditable(false);
+        PatientAddress.setBackground(new java.awt.Color(239, 220, 249));
+        PatientAddress.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         PatientAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -200,17 +230,22 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PatientAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+                .addComponent(PatientAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PatientAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PatientAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel2.add(jPanel6);
-        jPanel6.setBounds(60, 100, 220, 30);
+        jPanel6.setBounds(50, 120, 230, 40);
 
+        jPanel7.setBackground(new java.awt.Color(239, 220, 249));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel4.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
@@ -218,6 +253,8 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jLabel4.setText("Condition:");
 
         PatientCondition.setEditable(false);
+        PatientCondition.setBackground(new java.awt.Color(239, 220, 249));
+        PatientCondition.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         PatientCondition.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -227,16 +264,20 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PatientCondition, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                .addComponent(PatientCondition, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(PatientCondition, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PatientCondition, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel2.add(jPanel7);
-        jPanel7.setBounds(60, 140, 220, 30);
+        jPanel7.setBounds(50, 170, 230, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -314,6 +355,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.PatientNumber.setText("");
         this.PatientAddress.setText("");
         this.PatientCondition.setText("");
+        
         
        
                 
