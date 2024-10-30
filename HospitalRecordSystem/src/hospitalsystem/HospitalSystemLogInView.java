@@ -42,6 +42,7 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
         password = new javax.swing.JTextField();
         SignUpButton = new javax.swing.JButton();
         LogInButton = new javax.swing.JButton();
+        incorrectlbl = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -119,6 +120,11 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
         jPanel2.add(LogInButton);
         LogInButton.setBounds(60, 130, 110, 40);
 
+        incorrectlbl.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        incorrectlbl.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel2.add(incorrectlbl);
+        incorrectlbl.setBounds(60, 170, 170, 20);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,7 +150,16 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
 
     private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
         // TODO add your handling code here:
-        c.validateStaff(Integer.parseInt(staffId.getText()),password.getText());
+        
+        if(!this.staffId.getText().equals("")){
+            if(!c.validateStaff(Integer.parseInt(staffId.getText()),password.getText())){
+            this.incorrectlbl.setText("Incorrect Id or password");
+            
+            }
+        }
+        else{
+            this.incorrectlbl.setText("Staff Id not provided");
+        }
         
     }//GEN-LAST:event_LogInButtonActionPerformed
 
@@ -194,6 +209,7 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogInButton;
     private javax.swing.JButton SignUpButton;
+    private javax.swing.JLabel incorrectlbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

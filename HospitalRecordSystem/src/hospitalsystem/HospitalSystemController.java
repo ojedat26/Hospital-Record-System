@@ -25,12 +25,15 @@ public class HospitalSystemController {
        
         
     }
-    public void validateStaff(int staffId, String password){
+    public boolean validateStaff(int staffId, String password){
         boolean validation = m.checkStaff(staffId,password);
         if(validation){
             pv.PatientStartUp(this.getPatients()); //This function should display our patient display window
             v.closeup();
-            
+            return true;
+        }
+        else{
+            return false;
         }
         
     }
