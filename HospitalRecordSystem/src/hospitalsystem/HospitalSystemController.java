@@ -34,6 +34,12 @@ public class HospitalSystemController {
         }
         
     }
+    public void addNewPatient(String name, String phoneNumber,String address,String condition){
+        m.addPatient(name, phoneNumber, address,condition);
+    }
+    public void deletePatient(String name){
+        m.removePatient(name);
+    }
     public Patient getPatient(String name){
         return m.findPatient(name);
     }

@@ -35,7 +35,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        PatientOptions = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -46,36 +46,36 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         PatientNumber = new javax.swing.JTextField();
         PatientAddress = new javax.swing.JTextField();
         PatientCondition = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 153));
         jPanel1.setLayout(null);
 
-        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+        PatientOptions.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBox1ItemStateChanged(evt);
+                PatientOptionsItemStateChanged(evt);
             }
         });
-        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+        PatientOptions.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jComboBox1MouseClicked(evt);
+                PatientOptionsMouseClicked(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jComboBox1MouseReleased(evt);
+                PatientOptionsMouseReleased(evt);
             }
         });
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        PatientOptions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                PatientOptionsActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(92, 20, 220, 22);
+        jPanel1.add(PatientOptions);
+        PatientOptions.setBounds(92, 20, 220, 22);
 
         jPanel2.setBackground(new java.awt.Color(204, 0, 204));
         jPanel2.setLayout(null);
@@ -146,21 +146,36 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(20, 20, 300, 190);
 
-        jButton1.setText("Add");
-        jPanel2.add(jButton1);
-        jButton1.setBounds(320, 20, 72, 23);
+        addButton.setText("Add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(addButton);
+        addButton.setBounds(320, 20, 72, 23);
 
-        jButton2.setText("Remove");
-        jPanel2.add(jButton2);
-        jButton2.setBounds(320, 70, 73, 23);
+        removeButton.setText("Remove");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(removeButton);
+        removeButton.setBounds(320, 70, 73, 23);
 
-        jButton3.setText("Edit");
-        jPanel2.add(jButton3);
-        jButton3.setBounds(320, 120, 72, 23);
+        editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(editButton);
+        editButton.setBounds(320, 120, 72, 23);
 
-        jButton4.setText("Update");
-        jPanel2.add(jButton4);
-        jButton4.setBounds(320, 170, 72, 23);
+        updateButton.setText("Update");
+        jPanel2.add(updateButton);
+        updateButton.setBounds(320, 170, 72, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,33 +195,74 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+    private void PatientOptionsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_PatientOptionsItemStateChanged
         // TODO add your handling code here:
         
         //Patient patient = c.getPatient(evt.getItem().toString());
-    }//GEN-LAST:event_jComboBox1ItemStateChanged
+    }//GEN-LAST:event_PatientOptionsItemStateChanged
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void PatientOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientOptionsActionPerformed
         // TODO add your handling code here:
-        Patient patient = c.getPatient(jComboBox1.getSelectedItem().toString());
+        Patient patient = c.getPatient(PatientOptions.getSelectedItem().toString());
         this.PatientName.setText(patient.getName());
         this.PatientNumber.setText(patient.getPhoneNumber());
         this.PatientAddress.setText(patient.getAddress());
         this.PatientCondition.setText(patient.getCondition());
-        System.out.println(jComboBox1.getSelectedItem());
+       
         
         
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_PatientOptionsActionPerformed
 
-    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+    private void PatientOptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PatientOptionsMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jComboBox1MouseClicked
+    }//GEN-LAST:event_PatientOptionsMouseClicked
 
-    private void jComboBox1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseReleased
+    private void PatientOptionsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PatientOptionsMouseReleased
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jComboBox1MouseReleased
+    }//GEN-LAST:event_PatientOptionsMouseReleased
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        // TODO add your handling code here:
+        
+        c.addNewPatient(this.PatientName.getText(), this.PatientNumber.getText(), this.PatientAddress.getText(), this.PatientCondition.getText());
+        this.addToDropDown(this.PatientName.getText());
+        this.PatientOptions.setSelectedItem(this.PatientName.getText());
+        
+        this.PatientName.setEditable(false);
+        this.PatientNumber.setEditable(false);
+        this.PatientAddress.setEditable(false);
+        this.PatientCondition.setEditable(false);
+        
+        this.PatientName.setText("");
+        this.PatientNumber.setText("");
+        this.PatientAddress.setText("");
+        this.PatientCondition.setText("");
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        this.PatientName.setEditable(true);
+        this.PatientNumber.setEditable(true);
+        this.PatientAddress.setEditable(true);
+        this.PatientCondition.setEditable(true);
+        
+        this.PatientName.setText("");
+        this.PatientNumber.setText("");
+        this.PatientAddress.setText("");
+        this.PatientCondition.setText("");
+        
+       
+                
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        // TODO add your handling code here:
+        c.deletePatient(this.PatientOptions.getSelectedItem().toString());
+        this.PatientOptions.removeItemAt(this.PatientOptions.getSelectedIndex());
+        
+    }//GEN-LAST:event_removeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,19 +302,18 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         });
     }
     private void addToDropDown(String name){
-        model.addElement(name);
-        jComboBox1.setModel(model);
-        jComboBox1.setSelectedItem(name);
+        PatientOptions.addItem(name);
+        PatientOptions.setSelectedItem(name);
  
     }
     public void updateDropDown(ArrayList<String> Patients){
         System.out.println("here");
         for(String p:Patients){
-        model.addElement(p);
+        PatientOptions.addItem(p);
         
         }
-        jComboBox1.setModel(model);
-        this.jComboBox1.setSelectedIndex(0);
+        
+        this.PatientOptions.setSelectedIndex(1);
     }
     
 
@@ -267,11 +322,9 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
     private javax.swing.JTextField PatientCondition;
     private javax.swing.JTextField PatientName;
     private javax.swing.JTextField PatientNumber;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> PatientOptions;
+    private javax.swing.JButton addButton;
+    private javax.swing.JButton editButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -279,5 +332,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton removeButton;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }
