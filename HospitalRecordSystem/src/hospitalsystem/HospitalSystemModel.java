@@ -23,8 +23,13 @@ public class HospitalSystemModel {
         StaffList.add(new Staff(6120,"helloWorld"));
         StaffList.add(new Staff(7630,"passWrd"));
     }
-        public ArrayList<Patient> get_PatientList(){
-            return PatientList;
+        public ArrayList<String> getPatientList(){
+            ArrayList<String> patients = new ArrayList<String>();
+            for(Patient p:PatientList){
+                patients.add(p.getName());
+            }
+            return patients;
+            
         }
         public void addPatient(String name, String phoneNumber, String address, String Health){
             PatientList.add(new Patient(name, phoneNumber, address, Health));

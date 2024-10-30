@@ -17,24 +17,31 @@ public class HospitalSystemController {
         this.m = m;
         this.v = v;
         this.pv = pv;
+        System.out.println("In Controller");
         
     }
     public void start(){
         v.startup();
+        System.out.println("yurr");
+        
     }
     public void validateStaff(int staffId, String password){
         boolean validation = m.checkStaff(staffId,password);
         if(validation){
-            pv.patientDisplay(); //This function should display our patient display window
+            pv.PatientStartUp(this.getPatients()); //This function should display our patient display window
             v.closeup();
+            
         }
+        
     }
     public Patient getPatient(String name){
         return m.findPatient(name);
     }
-    public ArrayList<Patient> getPatients(){
-        return m.get_PatientList();
+    public ArrayList<String> getPatients(){
+        System.out.println("here");
+        return m.getPatientList();
     }
+    
 }
 
 

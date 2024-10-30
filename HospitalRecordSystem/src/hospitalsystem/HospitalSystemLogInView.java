@@ -10,12 +10,15 @@ package hospitalsystem;
  */
 public class HospitalSystemLogInView extends javax.swing.JFrame {
     static HospitalSystemController c = new HospitalSystemController(new HospitalSystemModel(),new HospitalSystemLogInView(),new HospitalSystemPatientView());
+    static HospitalSystemLogInView v = new HospitalSystemLogInView();
     
     /**
      * Creates new form HospitalSystemJFrame
      */
     public HospitalSystemLogInView() {
         initComponents();
+        
+        System.out.println("At LogInView");
     }
 
     /**
@@ -142,12 +145,13 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
     private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
         // TODO add your handling code here:
         c.validateStaff(Integer.parseInt(staffId.getText()),password.getText());
+        
     }//GEN-LAST:event_LogInButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    static HospitalSystemLogInView v = new HospitalSystemLogInView();
+    
     public void startup(){
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
