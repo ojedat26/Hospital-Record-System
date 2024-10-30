@@ -174,6 +174,11 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         editButton.setBounds(320, 120, 72, 23);
 
         updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
         jPanel2.add(updateButton);
         updateButton.setBounds(320, 170, 72, 23);
 
@@ -264,6 +269,12 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_removeButtonActionPerformed
 
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        // TODO add your handling code here:
+        c.updatePatient(this.PatientName.getText(), this.PatientNumber.getText(), this.PatientAddress.getText(), this.PatientCondition.getText());
+        this.PatientOptions.setSelectedItem(this.PatientName.getText());
+    }//GEN-LAST:event_updateButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -308,7 +319,9 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
     }
     public void updateDropDown(ArrayList<String> Patients){
         System.out.println("here");
+        
         for(String p:Patients){
+           
         PatientOptions.addItem(p);
         
         }

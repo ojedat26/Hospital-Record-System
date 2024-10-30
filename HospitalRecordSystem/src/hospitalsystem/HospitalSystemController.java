@@ -47,7 +47,9 @@ public class HospitalSystemController {
         
         return m.getPatientList();
     }
-    
+    public void updatePatient(String name,String phoneNumber,String address, String condition){
+        m.editPatientInfo(name, phoneNumber, address, condition);
+    }
 }
 
 

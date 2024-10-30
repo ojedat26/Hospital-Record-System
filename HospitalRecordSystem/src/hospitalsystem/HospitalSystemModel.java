@@ -31,8 +31,15 @@ public class HospitalSystemModel {
             return patients;
             
         }
-        public void addPatient(String name, String phoneNumber, String address, String Health){
-            PatientList.add(new Patient(name, phoneNumber, address, Health));
+        public void editPatientInfo(String name, String phoneNumber,String address,String condition){
+            Patient patient= this.findPatient(name);
+            patient.setPhoneNumber(phoneNumber);
+            patient.setAddress(address);
+            patient.setCondition(condition);
+            
+        }
+        public void addPatient(String name, String phoneNumber, String address, String condition){
+            PatientList.add(new Patient(name, phoneNumber, address, condition));
             
         }
         public void removePatient(String name){
