@@ -328,8 +328,9 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.clearTextBoxes();
         }
         else{
+            //throws error message
             this.errormsg.setText("Cannot Add Existing Patient");
-            System.out.println("Cannot Add");
+            this.disableEditing();
         }
         
     }//GEN-LAST:event_addButtonActionPerformed
