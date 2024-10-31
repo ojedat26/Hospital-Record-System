@@ -220,7 +220,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jPanel7.setBounds(40, 170, 230, 40);
 
         addButton.setBackground(new java.awt.Color(105, 94, 147));
-        addButton.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        addButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         addButton.setText("Add");
         addButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -232,7 +232,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         addButton.setBounds(290, 20, 100, 40);
 
         removeButton.setBackground(new java.awt.Color(105, 94, 147));
-        removeButton.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        removeButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         removeButton.setText("Remove");
         removeButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         removeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -244,9 +244,9 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         removeButton.setBounds(290, 70, 100, 40);
 
         editButton.setBackground(new java.awt.Color(105, 94, 147));
-        editButton.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        editButton.setFont(new java.awt.Font("Consolas", 0, 13)); // NOI18N
         editButton.setText("Edit Mode");
-        editButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        editButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -256,7 +256,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         editButton.setBounds(290, 120, 100, 40);
 
         updateButton.setBackground(new java.awt.Color(105, 94, 147));
-        updateButton.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         updateButton.setText("Update");
         updateButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         updateButton.setMargin(new java.awt.Insets(2, 15, 3, 15));
@@ -272,7 +272,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Patient Options");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(290, 0, 100, 15);
+        jLabel6.setBounds(290, 0, 100, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
