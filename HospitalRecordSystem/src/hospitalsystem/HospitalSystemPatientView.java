@@ -54,6 +54,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         editButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        errormsg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -220,7 +221,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jPanel7.setBounds(40, 170, 230, 40);
 
         addButton.setBackground(new java.awt.Color(105, 94, 147));
-        addButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        addButton.setFont(new java.awt.Font("Consolas", 0, 13)); // NOI18N
         addButton.setText("Add");
         addButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -232,7 +233,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         addButton.setBounds(290, 20, 100, 40);
 
         removeButton.setBackground(new java.awt.Color(105, 94, 147));
-        removeButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        removeButton.setFont(new java.awt.Font("Consolas", 0, 13)); // NOI18N
         removeButton.setText("Remove");
         removeButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         removeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -256,7 +257,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         editButton.setBounds(290, 120, 100, 40);
 
         updateButton.setBackground(new java.awt.Color(105, 94, 147));
-        updateButton.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Consolas", 0, 13)); // NOI18N
         updateButton.setText("Update");
         updateButton.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         updateButton.setMargin(new java.awt.Insets(2, 15, 3, 15));
@@ -272,7 +273,14 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Patient Options");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(290, 0, 100, 20);
+        jLabel6.setBounds(280, 0, 120, 20);
+
+        errormsg.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        errormsg.setForeground(new java.awt.Color(255, 0, 0));
+        errormsg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        errormsg.setText(" ");
+        jPanel2.add(errormsg);
+        errormsg.setBounds(40, 0, 230, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -290,58 +298,72 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void PatientOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientOptionsActionPerformed
         // Whenever an action is performed on the Drop Down Menu (e.g clicked), Patient info is displayed
+        if(this.PatientOptions.getItemCount() > 0){
         Patient patient = c.getPatient(PatientOptions.getSelectedItem().toString());
         this.PatientName.setText(patient.getName());
         this.PatientNumber.setText(patient.getPhoneNumber());
         this.PatientAddress.setText(patient.getAddress());
         this.PatientCondition.setText(patient.getCondition());
         this.PatientName.setEditable(false);
+        }
+        else{
+        this.clearTextBoxes();
+        }
+
     }//GEN-LAST:event_PatientOptionsActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         //addButton adds a new Patient to the Patients array through the Controller function & adds the Patients name to the drop down list
+        if(c.getPatient(this.PatientName.getText())==null){ //checks if patient is not already in our Patients array
         c.addNewPatient(this.PatientName.getText(), this.PatientNumber.getText(), this.PatientAddress.getText(), this.PatientCondition.getText());
         this.addToDropDown(this.PatientName.getText());
-        
+        //disables editing mode
+        this.disableEditing();
         //Sets all Text Boxes to be empty
-        this.PatientName.setText("");
-        this.PatientNumber.setText("");
-        this.PatientAddress.setText("");
-        this.PatientCondition.setText("");
+        this.clearTextBoxes();
+        }
+        else{
+            this.errormsg.setText("Cannot Add Existing Patient");
+            System.out.println("Cannot Add");
+        }
         
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         // removeButton deletes a Patient from the Patient array using the Controller & and removes it from the drop down list via index
+        
+        if(this.PatientOptions.getItemCount() > 1){
+        String Patient = this.PatientOptions.getSelectedItem().toString();
         c.deletePatient(this.PatientOptions.getSelectedItem().toString());
-        this.removeFromDropDown(this.PatientOptions.getSelectedIndex());
+        this.removeFromDropDown(this.PatientOptions.getSelectedItem().toString());
+        this.disableEditing();
+        }
+        else{
+            this.PatientOptions.removeAllItems();
+            
+        }
+        
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         // Sets the Text Boxes to be editable 
-        this.PatientName.setEditable(true);
-        this.PatientNumber.setEditable(true);
-        this.PatientAddress.setEditable(true);
-        this.PatientCondition.setEditable(true);
+        this.enableEditing();
         //Sets the Text Boxes to be empty
-        this.PatientName.setText("");
-        this.PatientNumber.setText("");
-        this.PatientAddress.setText("");
-        this.PatientCondition.setText("");
+        this.clearTextBoxes();
+        
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // updateButton uses user Input on a Patients Info to update that Patient's Information
         c.updatePatient(this.PatientName.getText(), this.PatientNumber.getText(), this.PatientAddress.getText(), this.PatientCondition.getText());
         //Sets all Text Boxes to be uneditable
-        this.PatientName.setEditable(false);
-        this.PatientNumber.setEditable(false);
-        this.PatientAddress.setEditable(false);
-        this.PatientCondition.setEditable(false);
+        this.disableEditing();
+        
     }//GEN-LAST:event_updateButtonActionPerformed
 
     /**
@@ -362,9 +384,9 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.PatientOptions.addItem(name);
         this.PatientOptions.setSelectedItem(name);
     }
-    private void removeFromDropDown(int index){
+    private void removeFromDropDown(String name){
         //removes Patient from the Drop Down list
-        this.PatientOptions.removeItemAt(index);
+        this.PatientOptions.removeItem(name);
     }
     private void updateDropDown(ArrayList<String> Patients){
         //updates Drop Down List with Patients in array
@@ -372,6 +394,27 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         PatientOptions.addItem(p);
         }
         this.PatientOptions.setSelectedIndex(1);
+    }
+    private void disableEditing(){
+        //disables editing mode
+        this.PatientName.setEditable(false);
+        this.PatientNumber.setEditable(false);
+        this.PatientAddress.setEditable(false);
+        this.PatientCondition.setEditable(false);
+    }
+    private void enableEditing(){
+        //enables editing mode
+        this.PatientName.setEditable(true);
+        this.PatientNumber.setEditable(true);
+        this.PatientAddress.setEditable(true);
+        this.PatientCondition.setEditable(true);
+    }
+    private void clearTextBoxes(){
+        //resets all the text boxes
+        this.PatientName.setText("");
+        this.PatientNumber.setText("");
+        this.PatientAddress.setText("");
+        this.PatientCondition.setText("");
     }
                                    
                                  
@@ -386,6 +429,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> PatientOptions;
     private javax.swing.JButton addButton;
     private javax.swing.JButton editButton;
+    private javax.swing.JLabel errormsg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
