@@ -359,7 +359,6 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.enableEditing();
         //Sets the Text Boxes to be empty
         this.clearTextBoxes();
-        
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
