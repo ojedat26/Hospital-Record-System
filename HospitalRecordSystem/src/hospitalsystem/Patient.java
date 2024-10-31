@@ -9,6 +9,7 @@ package hospitalsystem;
  * @author tonio
  */
 public class Patient {
+    //Patient Info
     private String name;
     private String phoneNumber;
     private String address;

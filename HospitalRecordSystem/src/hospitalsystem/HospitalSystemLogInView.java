@@ -10,7 +10,7 @@ package hospitalsystem;
  */
 public class HospitalSystemLogInView extends javax.swing.JFrame {
     static HospitalSystemController c = new HospitalSystemController(new HospitalSystemModel(),new HospitalSystemLogInView(),new HospitalSystemPatientView());
-    static HospitalSystemLogInView v = new HospitalSystemLogInView();
+    static HospitalSystemLogInView lv = new HospitalSystemLogInView();
     
     /**
      * Creates new form HospitalSystemJFrame
@@ -40,7 +40,6 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
-        SignUpButton = new javax.swing.JButton();
         LogInButton = new javax.swing.JButton();
         incorrectlbl = new javax.swing.JLabel();
 
@@ -53,9 +52,9 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Log In");
+        jLabel2.setText("Patient Records");
         jPanel5.add(jLabel2);
-        jLabel2.setBounds(130, 10, 140, 60);
+        jLabel2.setBounds(60, 10, 280, 60);
 
         jPanel2.setBackground(new java.awt.Color(190, 175, 194));
         jPanel2.setLayout(null);
@@ -98,12 +97,6 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(60, 70, 280, 50);
 
-        SignUpButton.setBackground(new java.awt.Color(105, 94, 147));
-        SignUpButton.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        SignUpButton.setText("Sign Up");
-        jPanel2.add(SignUpButton);
-        SignUpButton.setBounds(230, 130, 110, 40);
-
         LogInButton.setBackground(new java.awt.Color(105, 94, 147));
         LogInButton.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         LogInButton.setText("Log In");
@@ -113,12 +106,13 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(LogInButton);
-        LogInButton.setBounds(60, 130, 110, 40);
+        LogInButton.setBounds(110, 130, 180, 40);
 
         incorrectlbl.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
         incorrectlbl.setForeground(new java.awt.Color(255, 51, 51));
+        incorrectlbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(incorrectlbl);
-        incorrectlbl.setBounds(60, 170, 170, 20);
+        incorrectlbl.setBounds(120, 170, 170, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,19 +126,26 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
-        // TODO add your handling code here:
+        //When LogInButton is pressed, staffId and password TextBox Input boxes are validated
+        //If no input is provided error message is thrown
         
         if(!this.staffId.getText().equals("")){
+            if(!this.password.getText().equals("")){
             if(!c.validateStaff(Integer.parseInt(staffId.getText()),password.getText())){
             this.incorrectlbl.setText("Incorrect Id or password");
             
+            }
+          
+            }
+            else{
+                this.incorrectlbl.setText("Password not provided");
             }
         }
         else{
@@ -158,11 +159,7 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
      */
     
     public void startup(){
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        //opens HospitalSystemLogInView display window
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -187,18 +184,18 @@ public class HospitalSystemLogInView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                v.setVisible(true);
+                lv.setVisible(true);
             }
         });
         
     }
     public void closeup(){
-        v.setVisible(false);
+        //Closes HospitalSystemLogInView display window
+        lv.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogInButton;
-    private javax.swing.JButton SignUpButton;
     private javax.swing.JLabel incorrectlbl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

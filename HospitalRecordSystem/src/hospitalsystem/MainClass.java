@@ -11,10 +11,11 @@ package hospitalsystem;
 
 public class MainClass {
     public static void main(String[] args){
+        //creates instances of MVC classes & calls Controllers start method
         HospitalSystemModel m = new HospitalSystemModel();
-        HospitalSystemLogInView v = new HospitalSystemLogInView();
+        HospitalSystemLogInView lv = new HospitalSystemLogInView();
         HospitalSystemPatientView pv = new HospitalSystemPatientView();
-        HospitalSystemController c = new HospitalSystemController(m,v,pv);
+        HospitalSystemController c = new HospitalSystemController(m,lv,pv);
         c.start();
         
         

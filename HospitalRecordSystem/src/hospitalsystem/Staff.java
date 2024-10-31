@@ -9,6 +9,7 @@ package hospitalsystem;
  * @author tonio
  */
 public class Staff {
+    //Staff Credentials
     private int staffId;
     private String password;
     
