@@ -230,7 +230,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(addButton);
-        addButton.setBounds(290, 20, 100, 40);
+        addButton.setBounds(280, 20, 110, 40);
 
         removeButton.setBackground(new java.awt.Color(105, 94, 147));
         removeButton.setFont(new java.awt.Font("Consolas", 0, 13)); // NOI18N
@@ -242,7 +242,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(removeButton);
-        removeButton.setBounds(290, 70, 100, 40);
+        removeButton.setBounds(280, 70, 110, 40);
 
         editButton.setBackground(new java.awt.Color(105, 94, 147));
         editButton.setFont(new java.awt.Font("Consolas", 0, 13)); // NOI18N
@@ -254,7 +254,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(editButton);
-        editButton.setBounds(290, 120, 100, 40);
+        editButton.setBounds(280, 120, 110, 40);
 
         updateButton.setBackground(new java.awt.Color(105, 94, 147));
         updateButton.setFont(new java.awt.Font("Consolas", 0, 13)); // NOI18N
@@ -267,7 +267,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
             }
         });
         jPanel2.add(updateButton);
-        updateButton.setBounds(290, 170, 100, 40);
+        updateButton.setBounds(280, 170, 110, 40);
 
         jLabel6.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -310,6 +310,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.PatientAddress.setText(patient.getAddress());
         this.PatientCondition.setText(patient.getCondition());
         this.PatientName.setEditable(false);
+        this.errormsg.setText("");
         }
         else{
         this.clearTextBoxes();
@@ -326,6 +327,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.disableEditing();
         //Sets all Text Boxes to be empty
         this.clearTextBoxes();
+        
         }
         else{
             //throws error message
@@ -348,6 +350,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
             this.PatientOptions.removeAllItems();
             
         }
+        this.errormsg.setText("");
         
     }//GEN-LAST:event_removeButtonActionPerformed
 
@@ -364,6 +367,8 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         c.updatePatient(this.PatientName.getText(), this.PatientNumber.getText(), this.PatientAddress.getText(), this.PatientCondition.getText());
         //Sets all Text Boxes to be uneditable
         this.disableEditing();
+        
+        this.errormsg.setText("");
         
     }//GEN-LAST:event_updateButtonActionPerformed
 
@@ -416,6 +421,7 @@ public class HospitalSystemPatientView extends javax.swing.JFrame {
         this.PatientNumber.setText("");
         this.PatientAddress.setText("");
         this.PatientCondition.setText("");
+        this.errormsg.setText("");
     }
                                    
                                  
